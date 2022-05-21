@@ -10,7 +10,7 @@ router.use(express.static("public"))
 var webconfig = require("./webconfig")
 
 function controller(name) {
-	return require("./controllers" + name + "-controller")
+	return require("./controllers/" + name + "-controller")
 }
 
 router.get("/", function (request, response) {
