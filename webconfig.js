@@ -1,1 +1,1 @@
-exports.root = "/showroom"
+exports.root = "/showroom/"

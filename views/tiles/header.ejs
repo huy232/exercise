@@ -4,6 +4,11 @@
         <h1 class="w3-xxlarge w3-text-white">
             <span class="w3-padding w3-black w3-opacity-min"><b>AB</b></span>
             <span class="w3-hide-small w3-text-light-grey">Architects</span>
+        
+            <% if (logged) { %>
+                <a href="<%= root %>edit-general-info" class="w3-button w3-circle w3-large w3-blue">Edit</a>
+            <% } %>
+
         </h1>
     </div>
 </header>

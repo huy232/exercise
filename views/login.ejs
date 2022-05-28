@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>AB - Architects</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<body>
+    <%- include('tiles/navbar.ejs') %>
+
+    <br>
+    
+    <div class="w3-content w3-padding w3-card" style = "max-width:400px">
+        <div class="w3-container w3-padding-32">
+            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Login</h3>
+            
+            <%  if (errorMessage) { %>
+            <div class="w3-text-red"><p><%= errorMessage %></p></div>
+            <% } %>
+            
+            <form method="POST" action="">
+                <p>
+                    <label>Username</label>
+                    <input class="w3-input w3-border fixedinput" type="text" name="username" value="<%= username %>">
+                </p>
+                <p>
+                    <label>Password</label>
+                    <input class="w3-input w3-border fixedinput" type="password" name="password">
+                </p>
+
+                <div class="w3-center">
+                    <button type="submit" class="w3-button w3-black">LET ME IN</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
