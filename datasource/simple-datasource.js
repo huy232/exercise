@@ -10,3 +10,24 @@ exports.loadAccount = function (callback) {
 		callback(account)
 	})
 }
+
+exports.loadGeneralInfo = function(callback){
+	fs.readFile(path('general-info.json'), function (err, data){
+		var generalInfo = JSON.parse(data)
+		callback(generalInfo)
+	})
+}
+
+exports.saveGeneralInfo = function(info, featureImageTmpPath, callback){
+	fs.writeFile(path('general-info.json'), JSON.stringify(info), function(err){
+		if(err){
+			callback(err)
+			return
+		}
+		if(featureImageTmpPath){
+			fs.rename(featureImageTmpPath, 'public/images/feature.jpg', callback)
+			return
+		}
+		callback(false)
+	})
+}

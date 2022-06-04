@@ -2,13 +2,13 @@
 
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
         <a href="<%= root %>#home" class="w3-bar-item w3-button">
-            <b>AB</b> Architects
+            <b><%= generalInfo.companyNameShort %></b> <%= generalInfo.companyNameLong %>
         </a>
         
         <div class="w3-right w3-hide-small">
             <a href="<%= root %>#products" class="w3-bar-item w3-button">Products</a>
             <a href="<%= root %>#about" class="w3-bar-item w3-button">About</a>
-            <a href="<%= root %>#contact" class="w3-bar-item w3-button">Contact</a>
+           
             <% if (logged) { %>
                 <a href="<%= root %>logout" class="w3-bar-item w3-button w3-button-red">Logout</a>
             <% } else { %>

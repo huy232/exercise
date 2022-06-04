@@ -7,6 +7,9 @@ var app = express()
 app.set("view engine", "ejs")
 app.use(require("cookie-parser")())
 
+var multer = require("multer");
+var upload = multer({ dest: "tmp/"})
+
 var router = express.Router()
 router.use(express.static("public"))
 var webconfig = require("./webconfig")
@@ -30,6 +33,14 @@ router.post("/login", urlencodedParser, function (request, response) {
 
 router.get("/logout", function (request, response) {
 	controller("logout").get(request, response, webconfig)
+})
+
+router.get("/edit-general-info", function (request, response) {
+	controller("edit-general-info").get(request, response, webconfig, model)
+})
+
+router.post("/edit-general-info", upload.single('featureImage'), function (request, response) {
+	controller("edit-general-info").post(request, response, webconfig, model)
 })
 
 app.use(webconfig.root, router)

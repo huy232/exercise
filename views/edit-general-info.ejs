@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= generalInfo.companyNameShort %>
+        <%= generalInfo.companyNameLong %>
+        - Edit general info
+    </title>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="showroom.css">
+</head>
+<body>
+    <%- include ('tiles/navbar') %>
+    <br>
+    <div class="w3-content w3-padding w3-card" style="max-width: 400px">
+        <div class="w3-container w3-padding-32">
+            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Edit general info</h3>
+
+            <% if (errorMessage){ %>
+                <div class="w3-text-red"><p><%= errorMessage %></p></div>
+            <% } %>
+            <form method="POST" action="" enctype="multipart/form-data">
+                <p>
+                    <label>Company name short</label>
+                    <input class="w3-input w3-border fixedinput" type="text" name="companyNameShort" value="<% generalInfo.companyNameShort %>" required>
+                </p>
+                <p>
+                    <label>Company name long</label>
+                    <input class="w3-input w3-border fixedinput" type="text" name="companyNameLong" value="<% generalInfo.companyNameLong %>" required>
+                </p>
+                <p>
+                    <label>Feature image (.jpg) - No file chosen means no update feature image</label>
+                    <input class="w3-input w3-border fixedinput" type="file" name="featureImage" accept=".jpg">
+                </p>
+                
+                <div class="w3-center">
+                    <button type="submit" class="w3-button w3-black">SAVE</button>
+                    <a href="<%= root %>" class="w3-button w3-black">CANCEL</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

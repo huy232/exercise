@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>AB - Architects</title>
+<title>
+    <%= generalInfo.companyNameShort %>
+    <%= generalInfo.companyNameLong %>
+</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="w3.css">
@@ -11,7 +14,6 @@
     <div class="w3-content w3-padding" style = "max-width:1564px">
         <%- include('tiles/products.ejs') %>
         <%- include('tiles/about.ejs') %>
-        <%- include('tiles/contact.ejs') %>
     </div>
     <%- include('tiles/footer.ejs') %>
 </body>
