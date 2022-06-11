@@ -1,7 +1,16 @@
 <div class="w3-container w3-padding-32" id="about">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-    <p>Hello, World!</p>
+    <p style="white-space:pre-line" class="text-section"><%- about %></p>
     <% if(logged) { %>
-        <a class="w3-button w3-blue">Edit</a>
+        <a class="w3-button w3-blue" href = "<%= root %>edit-about">Edit</a>
     <% } %>
 </div>
+
+<script>
+    // let elements = document.getElementsByClassName("text-section")[0].innerText
+    // let splitElement = elements.split("\n")
+    // for(i = 0; i < splitElement.length; i++){
+    //     let modify = "<span class='modify'>" + splitElement[i] + "</span>"
+    //     console.log(modify)
+    // }
+</script>

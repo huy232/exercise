@@ -1,0 +1,3 @@
+Hello <b>World</b>
+<i>Hello</i> Summer
+<span style="color:green">Hello <span style="color:red">Morning  
