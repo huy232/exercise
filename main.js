@@ -55,6 +55,18 @@ router.post("/edit-about", urlencodedParser, function (request, response) {
 	controller("edit-about").post(request, response, webconfig, model)
 })
 
+router.get("/add-product", function (request, response) {
+	controller("add-product").get(request, response, webconfig, model)
+})
+
+router.post(
+	"/add-product",
+	upload.single("productImage"),
+	function (request, response) {
+		controller("add-product").post(request, response, webconfig, model)
+	}
+)
+
 app.use(webconfig.root, router)
 
 app.listen(8080, function () {

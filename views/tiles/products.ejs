@@ -2,11 +2,20 @@
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products</h3>
 </div>
 
+
+<% for(let i = 0; i < products.length; ++i) {
+    var product = products[i]
+    var isBeginRow = i % 4 == 0
+    var isEndRow = (i % 4 == 3) || (i == products.length - 1)
+
+    if(isBeginRow) { %> 
 <div class="w3-row-padding">
+    <% } %>
+
     <div class="w3-col l3 m6 w3-margin-bottom">
         <div class = "w3-display-container">
-            <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
-            <img src="images/products/5.jpg" alt = "House" style = "width:100%">
+            <div class="w3-display-topleft w3-black w3-padding"><%= product.name %></div>
+            <img src="images/products/<%= product.id %>.jpg" alt = "<%= product.name %>" style = "width:100%">
             <% if (logged) { %>
                 <div class="w3-display-bottomright w3-row" style="width:100%">
                     <a class="w3-half w3-button w3-blue">Edit</a>
@@ -16,42 +25,16 @@
         </div>
     </div>
 
-    <div class="w3-col l3 m6 w3-margin-bottom">
-        <div class="w3-display-container">
-            <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
-            <img src="images/products/2.jpg" alt="House" style = "width:100%">
-            <% if (logged) { %>
-                <div class="w3-display-bottomright w3-row" style="width:100%">
-                    <a class="w3-half w3-button w3-blue">Edit</a>
-                    <a class="w3-half w3-button w3-red">Delete</a>
-                </div>
-            <% } %>
-        </div>
-    </div>
 
-    <div class="w3-col l3 m6 w3-margin-bottom">
-        <div class="w3-display-container">
-            <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
-            <img src="images/products/3.jpg" alt="House" style = "width: 100%">
-            <% if (logged) { %>
-                <div class="w3-display-bottomright w3-row" style="width:100%">
-                    <a class="w3-half w3-button w3-blue">Edit</a>
-                    <a class="w3-half w3-button w3-red">Delete</a>
-                </div>
-            <% } %>
-        </div>
-    </div>
-
-    <div class="w3-col l3 m6 w3-margin-bottom">
-        <div class="w3-display-container">
-            <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
-            <img src="images/products/4.jpg" alt="House" style = "width: 100%">
-            <% if (logged) { %>
-                <div class="w3-display-bottomright w3-row" style="width:100%">
-                    <a class="w3-half w3-button w3-blue">Edit</a>
-                    <a class="w3-half w3-button w3-red">Delete</a>
-                </div>
-            <% } %>
-        </div>
-    </div>
+    <% if (isEndRow) { %>
 </div>
+    <% } %>
+
+<% } %>
+
+
+    <% if (logged) { %>
+    <div class="w3-padding">
+        <a class="w3-button w3-green w3-right" title = "Add product" href="<%= root %>add-product">+</a>    
+    </div>
+    <% } %>

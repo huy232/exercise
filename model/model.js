@@ -35,7 +35,26 @@ exports.create = function (datasource) {
 			}
 			datasource.saveAbout(text, function (err) {
 				if (err) {
-					callback("Coul not save about text")
+					callback("Could not save about text")
+					return
+				}
+				callback(false)
+			})
+		},
+		getProducts: datasource.loadProducts,
+
+		addProduct: function (name, imageTmpPath, callback) {
+			if (name == "") {
+				callback("Product name cannot be empty")
+				return
+			}
+			if (imageTmpPath == "") {
+				callback("Product name cannot be empty")
+				return
+			}
+			datasource.addProduct(name, imageTmpPath, function (err) {
+				if (err) {
+					callback("Could not add the product")
 					return
 				}
 				callback(false)
