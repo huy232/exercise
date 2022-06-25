@@ -15,11 +15,11 @@
     <div class="w3-col l3 m6 w3-margin-bottom">
         <div class = "w3-display-container">
             <div class="w3-display-topleft w3-black w3-padding"><%= product.name %></div>
-            <img src="images/products/<%= product.id %>.jpg" alt = "<%= product.name %>" style = "width:100%">
+            <img src="images/products/<%= product.id %>.jpg" alt = "<%= product.name %>" style = "width:100%" class="product-image">
             <% if (logged) { %>
                 <div class="w3-display-bottomright w3-row" style="width:100%">
-                    <a class="w3-half w3-button w3-blue">Edit</a>
-                    <a class="w3-half w3-button w3-red">Delete</a>
+                    <a class="w3-half w3-button w3-blue" href="<%= root %>edit-product?id=<%= product.id %>">Edit</a>
+                    <a class="w3-half w3-button w3-red" href="<%= root %>delete-product?id=<%= product.id %>" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
                 </div>
             <% } %>
         </div>

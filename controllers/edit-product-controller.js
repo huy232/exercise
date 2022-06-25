@@ -1,11 +1,12 @@
 var session = require("./session")
 
-function render(response, webconfig, errorMessage, model) {
+function render(response, webconfig, product, errorMessage, model) {
 	model.getGeneralInfo(function (generalInfo) {
-		response.render("add-product", {
+		response.render("edit-product", {
 			root: webconfig.root,
 			logged: true,
 			generalInfo: generalInfo,
+			product: product,
 			errorMessage: errorMessage,
 		})
 	})
@@ -16,7 +17,9 @@ exports.get = function (request, response, webconfig, model) {
 		response.redirect(webconfig.root)
 		return
 	}
-	render(response, webconfig, false, model)
+	model.getProduct(request.query.id, function (product) {
+		render(response, webconfig, product, false, model)
+	})
 }
 
 exports.post = function (request, response, webconfig, model) {
@@ -25,14 +28,21 @@ exports.post = function (request, response, webconfig, model) {
 		return
 	}
 
+	var productId = request.body.productId
 	var productName = request.body.productName
 	var imageTmpPath = request.file ? request.file.path : ""
 
-	model.addProduct(0, productName, imageTmpPath, function (errorMessage) {
-		if (errorMessage) {
-			render(response, webconfig, errorMessage, model)
-			return
+	model.addProduct(
+		productId,
+		productName,
+		imageTmpPath,
+		function (errorMessage) {
+			if (errorMessage) {
+				var product = { id: productId, name: productName }
+				render(response, webconfig, product, errorMessage, model)
+				return
+			}
+			response.redirect(webconfig.root + "#products")
 		}
-		response.redirect(webconfig.root + "#products")
-	})
+	)
 }
