@@ -1,2 +1,11 @@
+<h1 style="color:red;">ANIMAL LOVER  <b>Company<b/></h1>
+<h3 style="color:green;">Who are we?</h3>
 We are <i>pet industry</i> that deliver <b>cute</b> and <b>beautiful</b> animal that you are needed and wanted! <br>
-Every pet here is happy and waiting for you to get in touch with them! 
+Every pet here is happy and waiting for you to get in touch with them!
+<br>
+<br>
+<i>Address: 15E Nguyen Thi Minh Khai Street, District 1</i>
+<br>
+Phone: <b>(84-8) 62991474</b>
+<br>
+Email: animallover@gmail.com   
